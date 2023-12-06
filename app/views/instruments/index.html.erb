@@ -19,9 +19,11 @@
     <div style='width: 1000px; height: 100vh'
         data-controller="map"
         class="full-screen-map"
-        data-toggle-target="mapButton"
+        <%# data-toggle-target="mapButton" %>
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+        <% puts "MAPBOX_API_KEY: #{ENV['MAPBOX_API_KEY']}" %>
+
     </div>
 </div>
   <div class="i-cards d-flex flex-row flex-wrap">

@@ -3,24 +3,21 @@ import mapboxgl from 'mapbox-gl'
 
 // Connects to data-controller="map"
 export default class extends Controller {
-  static targets = ["mapButton"]
+  static targets = []
 
   static values = {
     apiKey: String,
     markers: Array
   }
 
-  // resizeMap() {
-  //   console.log("firing")
-  //   this.map.resize();
-  //   console.log("firing")
-
-  // }
-
-
+  resizeMap() {
+    console.log("firing")
+    this.map.resize();
+    console.log("firing")
+  }
 
   connect() {
-    console.log(this.mapButtonTarget)
+    // console.log(this.mapButtonTarget)
     console.log("hello from map controller")
 
     mapboxgl.accessToken = this.apiKeyValue
