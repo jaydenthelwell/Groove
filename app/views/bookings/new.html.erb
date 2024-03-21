@@ -1,19 +1,25 @@
-  <div class="booking-new">
-<h1><%= @instrument.name %></h1>
-<h3><%= "Rented out by #{@owner}" %></h3>
-<%= simple_form_for [@instrument, @booking] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="booking-new">
+  <% if user_signed_in? %>
+  <h1><%= @instrument.name %></h1>
+  <h3><%= "Rented out by #{@owner}" %></h3>
+  <%= simple_form_for [@instrument, @booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <%= f.input :start_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :end_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :start_date,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :end_date,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } } %>
 
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-  </div>
+    <% else %>
+      <script type="text/javascript">
+        window.location.href="/users/sign_in"
+      </script>
+    <% end %>
+</div>
 <% end %>
