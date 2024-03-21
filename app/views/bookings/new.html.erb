@@ -1,5 +1,5 @@
+<% if user_signed_in? %>
 <div class="booking-new">
-  <% if user_signed_in? %>
   <h1><%= @instrument.name %></h1>
   <h3><%= "Rented out by #{@owner}" %></h3>
   <%= simple_form_for [@instrument, @booking] do |f| %>
@@ -16,10 +16,10 @@
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-    <% else %>
-      <script type="text/javascript">
-        window.location.href="/users/sign_in"
-      </script>
-    <% end %>
 </div>
+<% end %>
+<% else %>
+  <script type="text/javascript">
+    window.location.href="/users/sign_in"
+  </script>
 <% end %>
