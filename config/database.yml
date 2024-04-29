@@ -79,8 +79,16 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
   <<: *default
-  database: Groove_production
-  username: Groove
-  password: <%= ENV["GROOVE_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: hfreijua
+  pool: 5
+  username: hfreijua
+  password: DE2PhTBcBdq2BsihW2uOnTlkTS4Ad5HS
+  host: rogue.db.elephantsql.com
+  port: 5432
+  sslmode: require
+  url: <%= ENV['ELEPHANT_DATABASE_URL'] %>
